@@ -1,0 +1,15 @@
+%div.biggest-margin
+  - @facades.each do |facade|
+    - facade.list.each do |api|
+      %section.biggest-margin-tb
+        %h1.bigger.small-margin-tb= api[:title]
+        = form_for :api, url: '', builder: WritingErrorFormBuilder::Builder, method: :post do |f|
+          = f.hidden_field :api_name, value: api[:api_name]
+          = f.hidden_field :module_name, value: api[:module_name]
+          - if api[:param]
+            %div.table-wrapper.border-silver.p100
+              %table.middle.small-padding.border-silver.horizontal-border.p100
+                - api[:param].each do |hash|
+                  = parse_to_html(hash, f)
+          %div.big-margin-tb
+            = f.submit "#{api[:title]}をたたく", class: [:button, :blue]

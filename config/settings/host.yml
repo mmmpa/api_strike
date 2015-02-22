@@ -1,0 +1,43 @@
+host:
+  animemap:
+    host: http://animemap.net/api/table/
+    format: :xml
+    api:
+      get_tokyo:
+        title: 東京のアニメ一覧
+        uri: tokyo.xml
+        http_method: get
+      get_osaka:
+        title: 大阪のアニメ一覧
+        uri: osaka.xml
+        http_method: get
+  hatena_haiku:
+    host: http://h.hatena.ne.jp/api/
+    format: :json
+    api:
+      public_timeline:
+        title: はてなハイク全体の最新の投稿
+        uri: /statuses/public_timeline.json
+        http_method: get
+        param:
+          - count: :number
+          - page: :number
+          - since: :number
+      user_timeline:
+        title: 指定したユーザーの最新の投稿
+        uri: /statuses/user_timeline/:url_name.json
+        http_method: get
+        param:
+          - url_name: :path
+          - count: :number
+          - page: :number
+          - since: :number
+      keyword_timeline:
+        title: キーワードへの投稿
+        uri: /statuses/keyword_timeline.json
+        http_method: get
+        param:
+          - word : :text
+          - count: :number
+          - page: :number
+          - since: :number

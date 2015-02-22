@@ -1,0 +1,6 @@
+exception_config:
+  page:
+    creation_failure:
+      message: 作成の失敗
+      status_code: 422
+      has_error: true

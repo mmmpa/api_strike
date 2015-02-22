@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ApiStrike
+    %link{:rel => :stylesheet, :type => :"text/css", :href => "/speed_theme/css/def.css"}
+    = csrf_meta_tags
+  %body
+    = yield
